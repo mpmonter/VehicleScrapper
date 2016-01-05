@@ -25,16 +25,19 @@ request.post({
 		callback.call(null, new Error('Login failed'));
 		return;
 	}
+	console.log('success');
 	// scapping
-
+	//request url string with search feature
 	request('http://www.manheim.com/info', function(err, res, body) {
 		if(err) {
 			callback.call(null, new Error('Request failed'));
+			console.log('Error has occured ');
 			return;
 		}
 
 		var $ = cheerio.load(body);
 		var text = $('#element').text();
+		//console.log(text);
 	});
 
 
